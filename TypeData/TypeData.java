@@ -1,7 +1,7 @@
 public class TypeData{
 	public static void main(String[] args){
 		//整型
-		//type
+		//byte
 		byte maxByte=Byte.MAX_VALUE;
 		System.out.println("maxByte:"+maxByte);
 		byte minByte=Byte.MIN_VALUE;
