@@ -12,4 +12,53 @@ package leetcode;
  */
 
 public class Solution1013 {
+    public boolean canThreePartsEqualSum(int[] A) {
+        int sum = 0;
+        for (int i = 0; i < A.length; i++) {
+            sum += A[i];
+        }
+        if (sum %3 != 0){//如果不能被三等分，则返回false
+            return false;
+        }
+        sum /= 3;
+        int avg = 0;
+        int count = 0;
+        for(int item :A) {
+           avg += item;
+           if (avg == sum) {
+               count++;
+               avg = 0;
+           }
+        }
+        return count >= 3;
+
+        //直接找三段吧，这个算法可能有点问题
+
+//        int left = 0;
+//        int right = A.length - 1;
+//        boolean res = false;
+//        int sum_l = 0;
+//        int sum_r = 0;
+//        while (left < right){
+//            //从左向右找三等分
+//            if (sum_l != sum /3){
+//                sum_l += A[left];
+//                left ++;
+//            }
+//            if (sum_r != sum /3){
+//                sum_r += A[right];
+//                right --;
+//            }
+//            if (sum_l == sum / 3 && sum_r == sum / 3){
+//                res  = true;
+//                break;
+//            }
+
+//        }
+        //还要检测一下剩余部分是否长度大于0;
+//        if (left == 0 || right == A.length){//要判断是否初始定义的结果正好是三分的结果
+//            return false;
+//        }
+//        return res;
+    }
 }
