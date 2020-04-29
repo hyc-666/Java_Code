@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 //将数组分成和相等的三个部分
 
 /**

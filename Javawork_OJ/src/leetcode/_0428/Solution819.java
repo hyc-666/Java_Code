@@ -42,6 +42,7 @@ import java.util.Map;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution819 {
+    //虽然过程曲折，不过最后结果7ms，还是击败了95.26%的提交呢，还是很不错的呢。
     public String mostCommonWord(String paragraph, String[] banned) {
         //把段落里的字母都转换成小写
         int len = paragraph.length();

@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 //找到小镇的法官
 
 import java.util.Arrays;

@@ -1,8 +1,6 @@
-package leetcode;
+package leetcode.Test;
 
-import javax.security.auth.kerberos.KerberosTicket;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 //设计实现双端队列。
 /**
  * 设计实现双端队列。

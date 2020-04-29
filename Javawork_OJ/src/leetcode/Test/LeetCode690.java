@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 
 //员工的重要性
 /**

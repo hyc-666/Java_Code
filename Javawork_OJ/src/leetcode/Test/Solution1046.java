@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 //最后一块石头的重量
 
 import java.util.*;

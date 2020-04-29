@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 //股票的跨度
 
 import java.util.ArrayList;

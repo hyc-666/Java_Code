@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 //棒球比赛
 /**
  * 你现在是棒球比赛记录员。

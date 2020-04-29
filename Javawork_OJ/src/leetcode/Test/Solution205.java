@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 //同构字符串
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Test;
 //比较含推个的字符串
 
 import java.util.Stack;
