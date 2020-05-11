@@ -25,10 +25,7 @@ import javafx.stage.Stage;
 import utils.JDBCUtil;
 
 import java.awt.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class LoginStage extends Application {
 
@@ -117,23 +114,33 @@ public class LoginStage extends Application {
         //链接数据库进行查询
         //获取链接对象
         Connection connection = null;
-        Statement statement = null;
+//        Statement statement = null;
         ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
         try{
             connection = JDBCUtil.getConnection();
             //拼接sql语句
-            String sql = "select username,password from user where " +
-                    "username = " + "'" + username +"'" + "and password = " + "'" + password + "'";
+            //这里，这样拼接sql的字符串是不行的，存在很明显的sql注入问题，存在重大安全隐患
+          /*  String sql = "select username,password from user where " +
+                    "username = " + "'" + username +"'" + "and password = " + "'" + password + "'";*/
 //            System.out.println(sql);
             //执行sql语句
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sql);
+//            statement = connection.createStatement();
+//            resultSet = statement.executeQuery(sql);
             //判断是否查询到结果
+            String sql = "select * from user where username = ? and password = ?";
+            //要使用预编译的PreparedStatement
+            preparedStatement = connection.prepareStatement(sql);
+            //然后参数需要传递
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,password);
+            //执行的时候不需要带参数，否则执行的是父类的代码
+            resultSet = preparedStatement.executeQuery();
             return resultSet.next();
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            JDBCUtil.close(resultSet,statement,connection);
+            JDBCUtil.close(resultSet,preparedStatement,connection);
         }
         return false;
     }
