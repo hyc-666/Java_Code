@@ -5,7 +5,7 @@ package everyDayQuestion._0601;
  * @date 2020/6/1
  */
 import java.util.*;
-
+//找第K大的数字
 public class Finder {
     public int findKth(int[] a, int n, int K) {
         // write code here
