@@ -5,62 +5,52 @@ package everyDayQuestion._0612;
  * @date 2020/6/12
  */
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
- * s题目描述
- * Fibonacci数列是这样定义的:
- * F[0]=0
- * F[1]= 1
- * for eachi≥2:F[]=F[-1]+ F[-2]
- * 因此，Fibonacci数列就形如: 0, 1, 1,2, 3, 5, 8, 13, ...在Fibonacci数列中的数我们称
- * 为Fibonacci数。给你一个N,你想让其变为-个Fibonacci数，每一步你可以把当前数
- * 字X变为X-1或者X+1,现在给你一个数N求最少需要多少步可以变为Fibonacci数。
+ * 口题目描述
+ * 给定一个k位整数N = dk-1*10k-1+ .. +d1*101+ do (0<=d|<=9, i0..K1. dk-1>0),请编
+ * 写程序统计每种不同的个位数字出现的次数。例如:给定N= 100311,则有2个0，3个
+ * 1,和1个3。
  * 输入描述:
- * 输入为一个正整数N(1≤N≤1,000, 000)
+ * 每个输入包含1个测试用例，即- 一个不超过1000位的正整数N。
  * 输出描述:
- * 输出一-个最小的步数变为Fibonacci数”
+ * 对Nv中每一种不同的个位数字， 以D:M的格 式在-行中输出该位数字p及其在N中出
+ * 现的次数M。要求按D的升序输出。
  * 示例1输入输出示例仅供调试， 后台判题数据一般不包含示例
  * 输入
  * | 复制
- * 15
+ * 100311
  * 输出
  * | 复制
- * 2
+ * 0:2
+ * 1:3
+ * 3: 1
  */
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Integer> list = fibList(1000000);
         while (scanner.hasNextInt()){
-            int n = scanner.nextInt();
-            int index = 0;
-            for (int i = 0; i < list.size(); i++) {
-                if (n >= list.get(i) && n <= list.get(i + 1)){
-                    index = i;
-                    break;
+            long n = scanner.nextInt();
+            String s = n + "";
+            Map<Integer,Integer> map = new HashMap<>();
+            for (int i = 0; i < s.length(); i++) {
+                char ch = s.charAt(i);
+                int key = ch - 48;
+                if (!map.containsKey(key)){
+                    map.put(key,1);
+                }else{
+                    int value = map.get(key);
+                    map.put(key,value + 1);
                 }
             }
-            int left = n - list.get(index);
-            int right = list.get(index + 1) - n;
-            System.out.println(Math.min(left,right));
+            for (int i = 0; i < 10; i++) {
+                if (map.containsKey(i)){
+                    System.out.println(i + ":" + map.get(i));
+                }
+            }
         }
-    }
-    public static List<Integer> fibList(int N){
-        int f0 = 0,f1 = 1;
-        List<Integer> list = new ArrayList<>();
-        int fn = f0 + f1;
-        list.add(f0);
-        list.add(f1);
-        list.add(fn);
-        while (fn <= N){
-            f0 = f1;
-            f1 = fn;
-            fn = f0 + f1;
-            list.add(fn);
-        }
-        return list;
     }
 }
