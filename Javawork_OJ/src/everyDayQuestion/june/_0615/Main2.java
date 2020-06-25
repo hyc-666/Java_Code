@@ -27,7 +27,7 @@ public class Main2 {
         int len1 = addend.length();
         int len2 = augend.length();
         int len = Math.max(len1,len2) + 1;
-        //取两者中等比较长的字符串然后转成等长的，而且为防止结果有进位，再长一位
+        //取两者中比较长的字符串然后转成等长的，而且为防止结果有进位，再长一位
         int[] str1 = new int[len];
         int[] str2 = new int[len];
         int[] res = new int[len];
