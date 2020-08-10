@@ -1,4 +1,4 @@
-package thread.thread.threadPoll;
+package thread.threadPool;
 //自定义的线程池
 
 import java.util.concurrent.ArrayBlockingQueue;
