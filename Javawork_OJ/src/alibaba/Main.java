@@ -1,4 +1,4 @@
-package newCode.alibaba;
+package alibaba;
 
 import java.util.Scanner;
 
