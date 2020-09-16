@@ -1,4 +1,4 @@
-package didi.q1.q2;
+package didi.q2;
 
 import java.util.Arrays;
 import java.util.Scanner;
