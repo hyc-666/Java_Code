@@ -1,5 +1,7 @@
 package shengzhou.q1;
 
+import java.util.*;
+
 /**
  * @author hyc
  * @date 2020/9/15
@@ -22,6 +24,15 @@ public class Solution {
         for (int i = 0; i < arr.length; i++) {
             sum += countBig(arr,i);
         }
+        Map<Integer,Integer> map = new HashMap<>();
+        List<Object> list = new ArrayList<>();
+        list.sort(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        });
+
         return sum;
     }
     //需要判断每个数后面一共有多少个数比他大
