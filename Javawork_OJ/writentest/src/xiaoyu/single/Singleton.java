@@ -5,7 +5,7 @@ package xiaoyu.single;
  * @date 2020/10/22
  */
 public class Singleton {
-    private static Singleton instance;
+    private static volatile Singleton instance;
     private Singleton(){
 
     }
@@ -13,9 +13,11 @@ public class Singleton {
 //        instance = new Singleton();
 //    }
     public static Singleton getInstance(){
-        synchronized (Singleton.class){
-            if (instance == null){
-                instance = new Singleton();
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
             }
         }
         return instance;
